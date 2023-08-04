@@ -62,7 +62,7 @@ def ziyuming():
         a=args.index(url1)
         args_number=a+1
 
-        for dic in open('dic1.txt'):
+        for dic in open('dic1.txt'):#字典在同一目录下
             l=dic.replace('\n','')
             ttl='TTL='
             urls=l+'.'+args[args_number]
