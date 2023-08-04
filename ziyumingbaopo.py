@@ -1,6 +1,6 @@
 import os
 def ziyuming(url):
-    for dic in open('dic1.txt'):
+    for dic in open('dic1.txt'):#字典文件要在同一目录下
         a=dic.replace('\n','')
         url1=a+"."+url
         ping=os.popen('ping '+url1).read()
